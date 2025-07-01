@@ -1,0 +1,253 @@
+:root {
+  --bg-light-img: url("https://content.presspage.com/uploads/1093/1920_10-9kevinmendozastudentprofile-lt-006-970810.jpg?10000");
+  --bg-dark-img: url("https://i1.wp.com/meijiinternships.com/wp-content/uploads/2020/04/virtual-insta-03-scaled-e1587018365168.jpg?ssl=1");
+
+  --text-light: #111827;
+  --text-dark: #f8fafc;
+
+  --card-light: rgba(255, 255, 255, 0.8);
+  --card-dark: rgba(30, 41, 59, 0.8);
+
+  --accent: #4f46e5;
+  --accent-hover: #3730a3;
+
+  --glass: rgba(255, 255, 255, 0.15);
+}
+
+html[data-theme='light'] {
+  --bg-img: var(--bg-light-img);
+  --text: var(--text-light);
+  --card: var(--card-light);
+}
+
+html[data-theme='dark'] {
+  --bg-img: var(--bg-dark-img);
+  --text: var(--text-dark);
+  --card: var(--card-dark);
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-img) no-repeat center center fixed;
+  background-size: cover;
+  color: var(--text);
+  scroll-behavior: smooth;
+  transition: all 0.4s ease-in-out;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.theme-toggle button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+.hero .content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 20px auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.btn {
+  padding: 12px 30px;
+  background-color: var(--accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--accent-hover);
+}
+
+.section {
+  padding: 70px 20px;
+  max-width: 1000px;
+  margin: 40px auto;
+  background: var(--card);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--accent);
+  margin-bottom: 30px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.card {
+  padding: 20px 30px;
+  background: var(--glass);
+  border-radius: 12px;
+  color: var(--text);
+  font-weight: bold;
+  font-size: 1rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+  background: var(--accent);
+  color: white;
+}
+
+.timeline .entry {
+  background: var(--glass);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.exp-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.exp-card {
+  background: var(--glass);
+  padding: 20px;
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.exp-card:hover {
+  transform: scale(1.04);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+button[type="submit"] {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+}
+
+.alert {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #dcfce7;
+  border-left: 5px solid green;
+  color: green;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 0;
+  font-size: 0.9rem;
+  color: var(--text);
+  background-color: rgba(0, 0, 0, 0.05);
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero h2 {
+    font-size: 1.1rem;
+  }
+  .cards, .exp-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
