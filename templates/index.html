@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>Rohith | Full Stack Developer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+
+<!-- Dark Mode Toggle Button -->
+<div class="theme-toggle">
+  <button id="toggleTheme">🌗 Toggle Dark Mode</button>
+</div>
+
+<!-- Header Hero Section -->
+<header class="hero" data-aos="fade-in">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>Hi, I'm <span>Rohith</span></h1>
+    <h2>Full Stack Developer</h2>
+    <p>Crafting scalable backend systems & beautiful frontend experiences.</p>
+    <a href="#contact" class="btn">📩 Let's Connect</a>
+  </div>
+</header>
+
+<!-- Skills Section -->
+<section class="section skills" data-aos="fade-up">
+  <h2><i class="fas fa-code"></i> Skills</h2>
+  <div class="cards">
+    <div class="card">Python</div>
+    <div class="card">Flask</div>
+    <div class="card">JavaScript</div>
+    <div class="card">React</div>
+    <div class="card">MongoDB</div>
+    <div class="card">SQL</div>
+  </div>
+</section>
+
+<!-- Education Section -->
+<section class="section education" data-aos="zoom-in">
+  <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+  <div class="timeline">
+    <div class="entry">
+      <h3>CMR Institute of Technology</h3>
+      <p>B.E in Computer Science<br>2024–2028</p>
+      <h3>Bangalore</h3>
+    </div>
+    <div class="entry">
+      <h3>Excellent PU College</h3>
+      <p>PCMC – 97%<br>2020–2022</p>
+      <h3>Mangalore</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Experience Section -->
+<section class="section experience" data-aos="flip-left">
+  <h2><i class="fas fa-briefcase"></i> Experience</h2>
+  <div class="exp-cards">
+    <div class="exp-card">
+      <h3>Software Engineer</h3>
+      <p>Google India Pvt Ltd (2034)</p>
+    </div>
+    <div class="exp-card">
+      <h3>Full Stack Developer</h3>
+      <p>NextEdge Technologies (2030–2034)</p>
+    </div>
+    <div class="exp-card">
+      <h3>Marketing Manager</h3>
+      <p>CodeNest Solutions (2028–2030)</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form -->
+<section class="section contact" id="contact" data-aos="fade-up">
+  <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <form action="/contact" method="POST">
+    <input type="text" name="name" placeholder="👤 Your Name" required>
+    <input type="email" name="email" placeholder="📧 Your Email" required>
+    <textarea name="message" placeholder="💬 Your Message" required></textarea>
+    <button type="submit">🚀 Send</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Rohith | Designed with ❤️ for Internship Top Performance</p>
+</footer>
+
+<!-- Scripts -->
+<!-- SweetAlert2 and Dark Mode BG  -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- SweetAlert2 and Dark Mode BG  -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  AOS.init();
+
+  // Toggle Theme Button
+  document.getElementById('toggleTheme').addEventListener('click', () => {
+    const html = document.documentElement;
+    const newTheme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', newTheme);
+
+    // Background fade animation
+    document.body.style.opacity = 0.3;
+    setTimeout(() => {
+      document.body.style.opacity = 1;
+    }, 300);
+
+    // Notify backend (optional)
+    fetch('/toggle-theme', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ theme: newTheme })
+    });
+  });
+
+  // SweetAlert2 Pop-Up on successful message
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        Swal.fire({
+          icon: 'success',
+          title: 'Message Sent!',
+          text: '{{ message }}',
+          showConfirmButton: false,
+          timer: 2500
+        });
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+</script>
+
+
+</body>
+</html>
