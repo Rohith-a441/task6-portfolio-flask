@@ -104,11 +104,10 @@ Fully responsive using Flexbox and media queries
 
 📸 Screenshots (Proof of Completion)
 File Name	Description
-01_light_mode_full_page.png	Full view of site in light mode
-02_dark_mode_full_page.png	Full view in dark mode with background image
+01_light_mode_page.png	 view of site in light mode
+02_dark_mode_page.png	 view of site in dark mode 
 03_success_popup.png	SweetAlert2 popup after contact form submission
-04_responsive_mobile_view.png	Mobile/tablet responsive layout proof
-05_terminal_server_running.png	Flask running in terminal (python app.py)
+04_terminal_server_running.png	Flask running in terminal (python app.py)
 
 📌 How This Project Stands Out
 ✅ Full-stack project using Python Flask
